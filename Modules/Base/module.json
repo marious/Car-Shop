@@ -1,0 +1,26 @@
+{
+    "name": "Base",
+    "alias": "base",
+    "description": "Base Module for VILT framework",
+    "keywords": [
+        "laravel",
+        "VILT",
+        "base",
+        "resource",
+        "page",
+        "vilt-admin",
+        "Vilt stack",
+        "admin panel",
+        "admin one",
+        "vuejs",
+        "ineriajs",
+        "tailwind.css"
+    ],
+    "priority": 455,
+    "providers": [
+        "Modules\\Base\\Providers\\BaseServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

@@ -1,0 +1,10 @@
+{
+    "Base": true,
+    "Roles": true,
+    "Generator": true,
+    "Car": true,
+    "Translations": true,
+    "CarShop": true,
+    "Insurance": true,
+    "Init": true
+}

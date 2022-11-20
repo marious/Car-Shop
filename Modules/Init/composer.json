@@ -1,0 +1,26 @@
+{
+    "name": "nwidart/init",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        },
+        "aliases": {
+            "Filter": "Init\\Facades\\FilterFacade"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Init\\": ""
+        }
+    }
+}

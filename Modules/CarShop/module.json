@@ -1,0 +1,13 @@
+{
+    "name": "CarShop",
+    "alias": "carshop",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\CarShop\\Providers\\CarShopServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

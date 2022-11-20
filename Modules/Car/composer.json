@@ -1,0 +1,23 @@
+{
+    "name": "queents/car",
+    "description": "",
+    "authors": [
+        {
+            "name": "Fady Mondy",
+            "email": "info@3x1.io"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Car\\": ""
+        }
+    }
+}

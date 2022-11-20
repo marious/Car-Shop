@@ -1,0 +1,13 @@
+{
+    "name": "Init",
+    "alias": "init",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Init\\Providers\\InitServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

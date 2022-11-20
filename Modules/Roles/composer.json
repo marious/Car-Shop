@@ -1,0 +1,40 @@
+{
+    "name": "queents/roles-module",
+    "description": "Full User ALC Plugin For Vilt Admin",
+    "keywords": [
+        "laravel",
+        "user",
+        "cli",
+        "resource",
+        "ui",
+        "vilt-admin",
+      "Vilt stack"
+    ],
+    "type": "laravel-module",
+    "homepage": "https://www.queentechsolutions.net",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Fady Mondy",
+            "email": "info@3x1.io",
+            "role": "Senior Fullstack developer"
+        }
+    ],
+    "require": {
+        "queents/vilt": "^1.0",
+        "joshbrw/laravel-module-installer": "^2.0",
+        "nwidart/laravel-modules": "^9.0",
+        "spatie/laravel-permission": "^5.5"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {}
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Roles\\": ""
+        }
+    }
+}
