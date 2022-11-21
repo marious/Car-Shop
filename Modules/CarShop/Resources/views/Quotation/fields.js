@@ -29,6 +29,14 @@ const fields = () => {
             dataIndex: 'model_id',
         },
         {
+            title: 'Car Shop',
+            dataIndex: 'car_shop_id',
+        },
+        {
+          title: 'User',
+          dataIndex: 'user_id'
+        },
+        {
             title: 'Created At',
             dataIndex: 'created_at',
         },

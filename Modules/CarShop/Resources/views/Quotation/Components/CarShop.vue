@@ -1,8 +1,8 @@
 <template>
     <a-col :xs="24" :sm="24" :md="8" :lg="5" :xl="3">
         <a-select
-            v-model:value="filters.company_id"
-            :placeholder="__('Select Company')"
+            v-model:value="filters.car_shop_id"
+            :placeholder="__('Select Car Shop')"
             :allowClear="true"
             style="width: 100%"
             optionFilterProp="title"
@@ -10,12 +10,12 @@
             @change="emit('handleChange')"
         >
             <a-select-option
-                v-for="company in companies"
-                :key="company.id"
-                :title="company.name"
-                :value="company.id"
+                v-for="carShop in carShops"
+                :key="carShop.id"
+                :title="carShop.name"
+                :value="carShop.id"
             >
-                {{ company.name }}
+                {{ carShop.name }}
             </a-select-option>
         </a-select>
     </a-col>
@@ -23,8 +23,10 @@
 
 <script setup>
 const props = defineProps({
-   companies: Object,
-   filters: Object,
-});
-const emit = defineEmits(['handleChange']);
+    filters: Object,
+    carShops: Object
+})
+
+const emit = defineEmits(['handleChange'])
 </script>
+

@@ -20,6 +20,8 @@ class StoreAccidentRequest extends FormRequest
             'compensation' => 'nullable|numeric',
             'payment_way' => 'nullable',
             'attachments.*' => 'mimes:jpeg,jpg,png,gif|required|max:10000',
+            'account_num' => 'required_if:payment_way,bank',
+            'check_num' => 'required_if:payment_way,check',
         ];
     }
 }

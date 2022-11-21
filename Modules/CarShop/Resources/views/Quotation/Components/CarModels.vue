@@ -1,5 +1,5 @@
 <template>
-    <a-col :xs="24" :sm="24" :md="8" :lg="6" :xl="4">
+    <a-col :xs="24" :sm="24" :md="8" :lg="5" :xl="3">
         <a-select
             v-model:value="filters.model_id"
             :placeholder="__('Select Model')"

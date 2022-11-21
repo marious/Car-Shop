@@ -117,6 +117,24 @@
                         </td>
                     </tr>
 
+                    <tr v-if="accident.payment_way === 'bank'">
+                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left">
+                            رقم الحساب المحول عليه
+                        </th>
+                        <td>
+                            {{ accident.account_num }}
+                        </td>
+                    </tr>
+
+                    <tr v-if="accident.payment_way === 'check'">
+                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left">
+                            رقم الشيك
+                        </th>
+                        <td>
+                            {{ accident.check_num }}
+                        </td>
+                    </tr>
+
                 </table>
 
                 <h2 class="font-bold font-lg py-5 bg-gray-200 px-5">Attachments</h2>

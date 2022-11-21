@@ -19,13 +19,13 @@ Route::middleware('auth:api')->get('/carshop', function (Request $request) {
 });
 
 Route::get('car-shops', function (Request $request) {
-    \Modules\CarShop\Http\Resources\Inertia\CarShopResource::collection(
+    return \Modules\CarShop\Http\Resources\Inertia\CarShopResource::collection(
         CarShop::query()
             ->when($request->input('search'), function ($query, $search) {
                 $query->whereRaw('LOWER(JSON_EXTRACT(name, "$.en")) like ?', ['"%' . strtolower($search) . '%"'])
                     ->orWhereRaw('LOWER(JSON_EXTRACT(name, "$.ar")) like ?', ['"%' . strtolower($search) . '%"']);
             })
-            ->paginate(15)
+            ->paginate(request()->input('limit') ?: 15)
             ->withQueryString()
     );
 })->name('api.car-shops.index');

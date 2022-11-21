@@ -28,6 +28,10 @@ const fields = () => {
             dataIndex: 'model_id',
         },
         {
+            title: 'Car Shop',
+            dataIndex: 'car_shop_id',
+        },
+        {
             title: 'Policy Number',
             dataIndex: 'policy_num',
         },
@@ -38,6 +42,10 @@ const fields = () => {
         {
             title: 'Approved At',
             dataIndex: 'approved_at',
+        },
+        {
+            title: 'User',
+            dataIndex: 'user_id',
         },
         {
             title: 'Actions',

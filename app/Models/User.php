@@ -77,5 +77,8 @@ class User extends Authenticatable
         return $this->belongsTo(CarShop::class,'car_shop_id');
     }
 
-
+    public static function getAppendFields()
+    {
+        return (new static)->appends;
+    }
 }

@@ -52,5 +52,9 @@ class CarShop extends Model
         return $date->format('Y-m-d H:i:s');
     }
 
-    /* ************************ RELATIONS ************************ */
+
+    public static function getAppendFields()
+    {
+        return (new static)->appends;
+    }
 }

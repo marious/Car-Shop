@@ -1,6 +1,7 @@
 <?php
 namespace Modules\CarShop\Entities;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Insurance\Entities\Company;
 use Modules\Insurance\Entities\Fee;
@@ -36,6 +37,10 @@ class Quotation extends ApiModel implements HasMedia
         return $this->belongsToMany(Fee::class, 'quotation_fees')->withPivot(['amount']);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function company()
     {
@@ -50,5 +55,10 @@ class Quotation extends ApiModel implements HasMedia
     public function model()
     {
         return $this->belongsTo(CarModel::class);
+    }
+
+    public function carShop()
+    {
+        return $this->belongsTo(CarShop::class);
     }
 }

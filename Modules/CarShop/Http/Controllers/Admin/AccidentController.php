@@ -60,6 +60,8 @@ class AccidentController extends Controller
                 'admin_note' => $validated['admin_note'] ?: null,
                 'compensation' => $validated['compensation'] ?: null,
                 'payment_way' => strtolower($validated['payment_way']) ?: null,
+                'account_num' => $validated['account_num'] ?: null,
+                'check_num' => $validated['check_num'] ?: null,
             ]);
 
             $quotation->is_accident = true;

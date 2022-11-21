@@ -11,7 +11,7 @@
             <div class="form-group mb-6">
                 <label for="accident_date" class="form-label inline-block mb-2 text-gray-700">تاريخ الحادث</label>
                 <Calendar inputId="accident_date" v-model="form.accident_date" dateFormat="yy-mm-dd"
-                          class="form-control block w-full"/>
+                          class="form-control block w-full" aria-autocomplete="none"/>
                 <jet-input-error
                     class="mt-2"
                     :message="form.errors['accident_date']"
@@ -37,11 +37,11 @@
                 />
             </div>
 
-            <div class="form-group mb-6" v-if="showFinancial">
+            <div class="form-group mb-6 payment-amount" v-if="showFinancial">
                 <label for="compensation" class="form-label inline-block mb-2 text-gray-700">المبلغ المدفوع
                     (التعويض)</label>
-                <InputText type="text" v-model="form.compensation" class="form-control block w-full"
-                           id="compensation"/>
+                <InputNumber type="text" v-model="form.compensation" class="form-control block w-full"
+                           id="compensation" aria-autocomplete="none" />
                 <jet-input-error
                     class="mt-2"
                     :message="form.errors['compensation']"
@@ -52,10 +52,33 @@
                 <label for="compensation" class="form-label inline-block mb-2 text-gray-700">طريقة الدفع</label>
 
                 <Dropdown v-model="form.payment_way" :options="paymentWays" optionLabel="label" optionValue="value"
-                          placeholder="Select Payment way" class="form-control block w-full" change="alert('hi')"/>
+                          placeholder="Select Payment way" class="form-control block w-full"
+                          @change="handleChangePayment"/>
                 <jet-input-error
                     class="mt-2"
                     :message="form.errors['payment_way']"
+                />
+            </div>
+
+            <div class="form-group mb-6"  v-if="paymentWay === 'bank'">
+                <label for="account_num" class="form-label inline-block mb-2 text-gray-700">رفم الحساب المحول
+                    عليه</label>
+                <InputText type="text" v-model="form.account_num" class="form-control block w-full"
+                           id="account_num"/>
+                <jet-input-error
+                    class="mt-2"
+                    :message="form.errors['account_num']"
+                />
+            </div>
+
+            <div class="form-group mb-6" v-if="paymentWay === 'check'">
+                <label for="check_num" class="form-label inline-block mb-2 text-gray-700">رقم
+                    الشيك</label>
+                <InputText type="text" v-model="form.check_num" class="form-control block w-full"
+                           id="check_num"/>
+                <jet-input-error
+                    class="mt-2"
+                    :message="form.errors['check_num']"
                 />
             </div>
 
@@ -92,6 +115,7 @@ import {mdiBallotOutline} from "@mdi/js";
 import SectionMain from "@/Components/SectionMain.vue";
 import CardBox from "@/Components/CardBox.vue";
 import InputText from 'primevue/inputtext';
+import InputNumber from 'primevue/inputnumber';
 import Calendar from 'primevue/calendar';
 import ViltMedia from "../../../../Base/Services/Rows/Render/ViltMedia.vue";
 import SectionTitleLineWithButton from "@/Components/SectionTitleLineWithButton.vue";
@@ -111,7 +135,7 @@ let carModels = ref([]);
 
 let paymentWays = ref([
     {label: 'Cash', value: 'cash'},
-    {label: 'Bank', value: 'Bank'},
+    {label: 'Bank', value: 'bank'},
     {label: 'Check', value: 'check'},
 ]);
 
@@ -131,6 +155,8 @@ const form = useForm(
         compensation: null,
         payment_way: null,
         attachments: attachments,
+        account_num: null,
+        check_num: null,
     },
     {remember: false}
 );
@@ -144,7 +170,12 @@ const submit = (e) => {
     });
 };
 
-console.log(route().current());
+const paymentType = ref(null);
+
+const handleChangePayment = function (item) {
+    paymentWay.value = item.value;
+}
+
 </script>
 
 <script>
@@ -154,3 +185,9 @@ export default {
     layout: ResourceTableLayout,
 };
 </script>
+<style>
+.payment-amount [type='text'] {
+    border: none;
+    padding: 0;
+}
+</style>
