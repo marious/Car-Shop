@@ -12,7 +12,6 @@ const props = defineProps({
   },
   error: {
     String,
-    default: '',
   },
   disabled: Boolean,
 });
