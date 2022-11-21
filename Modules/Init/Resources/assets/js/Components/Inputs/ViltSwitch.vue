@@ -12,6 +12,7 @@ const props = defineProps({
   },
   error: {
     String,
+    default: null,
   },
   disabled: Boolean,
 });
@@ -29,7 +30,6 @@ const props = defineProps({
     <Toggle
       :name="row.name"
       :id="row.name"
-      v-model="modelValue"
       @change="$emit('update:modelValue', !modelValue)"
       :classes="{
         container:
