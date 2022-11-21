@@ -3,7 +3,7 @@ import JetDialogModal from "@/Jetstream/DialogModal.vue";
 import JetSecondaryButton from "@/Jetstream/SecondaryButton.vue";
 import InputText from 'primevue/inputtext';
 import Calendar from 'primevue/calendar';
-import ViltMedia from "../../../../Base/Services/Rows/Render/ViltMedia.vue";
+import ViltMedia from "$$/Base/Services/Rows/Render/ViltMedia.vue";
 import {useForm} from "@inertiajs/inertia-vue3";
 import JetInputError from "@/Jetstream/InputError.vue";
 import Message from 'primevue/message';
