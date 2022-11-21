@@ -117,7 +117,7 @@ import CardBox from "@/Components/CardBox.vue";
 import InputText from 'primevue/inputtext';
 import InputNumber from 'primevue/inputnumber';
 import Calendar from 'primevue/calendar';
-import ViltMedia from "$$/Base/Services/Rows/Render/ViltMedia.vue";
+import ViltMedia from "../../../../Base/Services/Rows/Render/ViltMedia.vue";
 import SectionTitleLineWithButton from "@/Components/SectionTitleLineWithButton.vue";
 import Dropdown from 'primevue/dropdown';
 import BaseButton from "@/Components/BaseButton.vue";
