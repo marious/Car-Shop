@@ -32,6 +32,8 @@ class Quotation extends ApiModel implements HasMedia
         'updated_at',
     ];
 
+    protected $filterable = ['brand_id', 'model_id', 'car_shop_id', 'company_id', 'customer_name', 'policy_num', 'policy_year'];
+
     public function fees()
     {
         return $this->belongsToMany(Fee::class, 'quotation_fees')->withPivot(['amount']);

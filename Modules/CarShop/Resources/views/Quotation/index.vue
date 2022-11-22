@@ -45,11 +45,7 @@
                     <CarShop :filters="filters" :carShops="carShops" @handleChange="setUrlData"/>
 
                     <a-col :xs="24" :sm="24" :md="8" :lg="6" :xl="6">
-                        <DateRangePicker
-                            @dateTimeChanged="
-						(changedDateTime) => {(rangDates = changedDateTime)}
-					"
-                        />
+                        <DateRangePicker @date-change="testChange" />
                     </a-col>
                 </a-row>
             </a-card>
@@ -128,6 +124,9 @@ import CarModels from "./Components/CarModels.vue";
 import CarShop from "./Components/CarShop.vue";
 import SectionTitleLineWithButton from "@/Components/SectionTitleLineWithButton.vue";
 
+function testChange(val) {
+    console.log('hello every one');
+}
 
 const {
     addEditUrl,
@@ -145,6 +144,7 @@ const searchDateRangePicker = ref(null);
 
 const filters = ref({
     company_id: undefined,
+    dates: [],
 });
 
 const rangDates = ref([]);
