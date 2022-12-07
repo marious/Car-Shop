@@ -3,6 +3,7 @@
 namespace Modules\CarShop\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Modules\CarShop\Rules\ValidAgeRule;
 
 class StoreQuotationRequest extends FormRequest
 {
@@ -20,7 +21,7 @@ class StoreQuotationRequest extends FormRequest
             'model_id' => 'required',
             'company_id' => 'required',
             'customer_name' => 'required|min:5',
-            'birth_date' => 'required',
+            'birth_date' => ['required', new ValidAgeRule()],
             'car_num' => 'required',
             'chasses_num' => 'required',
             'motor_num' => 'required',

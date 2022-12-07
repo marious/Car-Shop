@@ -2,7 +2,7 @@
     <div class="px-6 pt-2 mx-auto">
         <SectionTitleLineWithButton
             :icon="mdiBallotOutline"
-            title="Approved Quotations"
+            :title="__('Approved Quotations')"
             main
         >
         </SectionTitleLineWithButton>

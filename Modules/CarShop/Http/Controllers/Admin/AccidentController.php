@@ -28,9 +28,11 @@ class AccidentController extends Controller
                     'quotation.model', 'quotation.brand'])
                 ->firstOrFail();
             $medias = $accident->getMedia('attachments')->toArray();
+            $isAdmin = auth()->user()->is_admin;
             return Inertia::render('@CarShop::Quotation/accidentItem', [
                 'accident' => $accident,
                 'medias' => $medias,
+                'isAdmin' => $isAdmin,
             ]);
         } catch (\Throwable $exception) {
             \Log::error($exception);

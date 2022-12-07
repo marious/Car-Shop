@@ -68,11 +68,11 @@
                     </tr>
 
                 </table>
-                <h2 class="font-bold font-lg py-5 bg-gray-200 px-5">Accident Info</h2>
+                <h2 class="font-bold font-lg py-5 bg-gray-200 px-5">{{ __('Accident Info') }}</h2>
                 <table class="min-w-full">
                     <tr>
                         <th scope="col" class="text-lg font-bold px-6 py-4 text-left">
-                            تاريخ الحادث
+                            {{ __('Accident Date') }}
                         </th>
                         <td>
                             {{ accident.accident_date }}
@@ -82,25 +82,25 @@
 
                     <tr>
                         <th scope="col" class="text-lg font-bold px-6 py-4 text-left">
-                            وصف الحادث
+                           {{ __('Accident Description') }}
                         </th>
                         <td>
                             {{ accident.description }}
                         </td>
                     </tr>
 
-                    <tr>
+                    <tr v-if="isAdmin">
                         <th scope="col" class="text-lg font-bold px-6 py-4 text-left">
-                            ملاحظات (MK)
+                            {{ __('Mk Notes') }}
                         </th>
                         <td>
                             {{ accident.admin_note }}
                         </td>
                     </tr>
 
-                    <tr>
+                    <tr v-if="isAdmin">
                         <th scope="col" class="text-lg font-bold px-6 py-4 text-left">
-                            المبلغ المدفوع (التعويض)
+                           {{ __('Amount Paid') }}
                         </th>
                         <td>
                             {{ accident.compensation }}
@@ -108,27 +108,27 @@
                     </tr>
 
 
-                    <tr>
+                    <tr v-if="isAdmin">
                         <th scope="col" class="text-lg font-bold px-6 py-4 text-left">
-                            طريقة الدفع
+                            {{ __('Payment Way') }}
                         </th>
                         <td>
                             {{ accident.payment_way }}
                         </td>
                     </tr>
 
-                    <tr v-if="accident.payment_way === 'bank'">
+                    <tr v-if="accident.payment_way === 'bank' && isAdmin">
                         <th scope="col" class="text-lg font-bold px-6 py-4 text-left">
-                            رقم الحساب المحول عليه
+                           {{ __('Account Number') }}
                         </th>
                         <td>
                             {{ accident.account_num }}
                         </td>
                     </tr>
 
-                    <tr v-if="accident.payment_way === 'check'">
+                    <tr v-if="accident.payment_way === 'check' && isAdmin">
                         <th scope="col" class="text-lg font-bold px-6 py-4 text-left">
-                            رقم الشيك
+                           {{ __('Check No') }}
                         </th>
                         <td>
                             {{ accident.check_num }}
@@ -137,7 +137,7 @@
 
                 </table>
 
-                <h2 class="font-bold font-lg py-5 bg-gray-200 px-5">Attachments</h2>
+                <h2 class="font-bold font-lg py-5 bg-gray-200 px-5">{{ __('Attachments')}}</h2>
                 <div class="mt-5">
                     <Image v-for="image in medias"
                            :src="image['original_url']"
@@ -163,6 +163,7 @@ import Image from 'primevue/image';
 let props = defineProps({
     accident: Object,
     medias: Array,
+    isAdmin: Boolean,
 });
 </script>
 

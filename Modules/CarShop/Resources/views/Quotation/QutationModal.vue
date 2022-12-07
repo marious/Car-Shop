@@ -7,7 +7,7 @@ import ViltMedia from "../../../../Base/Services/Rows/Render/ViltMedia.vue";
 import {useForm} from "@inertiajs/inertia-vue3";
 import JetInputError from "@/Jetstream/InputError.vue";
 import Message from 'primevue/message';
-import {ref} from 'vue';
+import {onMounted, ref, watch} from 'vue';
 
 const props = defineProps({
     info: Object,
@@ -15,6 +15,9 @@ const props = defineProps({
     title: "",
 });
 
+const currentYear = new Date().getFullYear();
+const minDateValue = new Date('1900-01-01');
+const maxDate = new Date(`${currentYear - 17}-01-01`);
 
 const successSend = ref(false);
 const name = ref('');
@@ -25,12 +28,12 @@ const motorNo = ref('');
 const attachments = ref([]);
 const imageRow = {
     multi: true,
-    name: 'attachments',
+    name: 'Attachments',
 };
 
 const emit = defineEmits(["closeModal"]);
 
-const form = useForm({
+let form = useForm({
     year: props.info.year,
     price: props.info.price,
     brand_id: props.info.brandId,
@@ -42,7 +45,7 @@ const form = useForm({
     chasses_num: chassisNo,
     motor_num: motorNo,
     attachments: attachments,
-}, {remember: false});
+});
 
 
 const submit = (e) => {
@@ -62,6 +65,7 @@ const submit = (e) => {
             attachments.value = [];
             successSend.value = true;
             form.reset();
+            setTimeout(() => close(), 1000);
         }
     })
     e.preventDefault();
@@ -69,15 +73,22 @@ const submit = (e) => {
 
 function close() {
     successSend.value = false;
-    name.value = '';
-    birthDate.value = '';
-    carNumber.value = '';
-    chassisNo.value = '';
-    motorNo.value = '';
-    attachments.value = [];
+    // name.value = '';
+    // birthDate.value = '';
+    // carNumber.value = '';
+    // chassisNo.value = '';
+    // motorNo.value = '';
+    // attachments.value = [];
     emit('closeModal');
 }
 
+
+watch(name, newVal => form.customer_name = newVal);
+watch(birthDate, newVal => form.birth_date = newVal);
+watch(carNumber, newVal => form.car_num = newVal);
+watch(chassisNo, newVal => form.chasses_num = newVal);
+watch(motorNo, newVal => form.motor_num = newVal);
+watch(attachments, newVal => form.attachments = newVal);
 </script>
 <template>
     <JetDialogModal :show="showModal" @end="close">
@@ -88,10 +99,9 @@ function close() {
             <hr class="my-4"/>
         </template>
         <template #content>
-            <Message v-if="successSend" severity="success" :life="5000">تم إرسال البيانات بنجاح</Message>
+            <Message v-if="successSend" severity="success" :life="5000">{{ __('Data Saved Successfully') }}</Message>
             <div class="form-group mb-6">
-                <label for="name" class="form-label inline-block mb-2 text-gray-700">اسم
-                    العميل</label>
+                <label for="name" class="form-label inline-block mb-2 text-gray-700">{{ __('Customer Name') }}</label>
                 <InputText type="text" v-model="name" class="form-control block w-full" id="name"/>
                 <jet-input-error
                     class="mt-2"
@@ -99,10 +109,11 @@ function close() {
                 />
             </div>
             <div class="form-group mb-6">
-                <label for="birth-date" class="form-label inline-block mb-2 text-gray-700">تاريخ
-                    الميلاد</label>
+                <label for="birth-date" class="form-label inline-block mb-2 text-gray-700">
+                    {{ __('Birth Date') }}
+                </label>
                 <Calendar inputId="birth-date" v-model="birthDate" dateFormat="yy-mm-dd"
-                          class="form-control block w-full"/>
+                          class="form-control block w-full" :minDate="minDateValue" :maxDate="maxDate" manualInput/>
                 <jet-input-error
                     class="mt-2"
                     :message="form.errors['birth_date']"
@@ -110,7 +121,7 @@ function close() {
             </div>
 
             <div class="form-group mb-6">
-                <label for="car-number" class="form-label inline-block mb-2 text-gray-700">رقم اللوحة</label>
+                <label for="car-number" class="form-label inline-block mb-2 text-gray-700">{{ __('Plate Number') }}</label>
                 <InputText type="text" v-model="carNumber" class="form-control block w-full" id="car-number"/>
                 <jet-input-error
                     class="mt-2"
@@ -119,7 +130,7 @@ function close() {
             </div>
 
             <div class="form-group mb-6">
-                <label for="chassis-number" class="form-label inline-block mb-2 text-gray-700">رقم الشاسيه</label>
+                <label for="chassis-number" class="form-label inline-block mb-2 text-gray-700">{{ __('Chasses No') }}</label>
                 <InputText type="text" v-model="chassisNo" class="form-control block w-full"
                            id="chassis-number"/>
                 <jet-input-error
@@ -129,7 +140,7 @@ function close() {
             </div>
 
             <div class="form-group mb-6">
-                <label for="motor-number" class="form-label inline-block mb-2 text-gray-700">رقم الموتور</label>
+                <label for="motor-number" class="form-label inline-block mb-2 text-gray-700"> {{ __('Motor No') }}</label>
                 <InputText type="text" v-model="motorNo" class="form-control block w-full"
                            id="motor-number"/>
                 <jet-input-error
@@ -158,8 +169,12 @@ function close() {
       active:bg-blue-800 active:shadow-lg
       transition
       duration-150
-      ease-in-out mr-2">Save
+      ease-in-out mr-2"
+            >
+
+                {{ __('Save') }}
             </button>
+
 
             <JetSecondaryButton @click="close">
                 {{ __('Close') }}

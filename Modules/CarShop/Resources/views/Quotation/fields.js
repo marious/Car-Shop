@@ -1,3 +1,5 @@
+import {translations} from "$/Mixins/translations";
+const __ = translations.methods.__;
 const fields = () => {
 
     const addEditUrl = 'quotations';
@@ -12,36 +14,36 @@ const fields = () => {
             dataIndex: 'id',
         },
         {
-            title: 'Customer Name',
+            title: __('Customer Name'),
             dataIndex: 'customer_name',
         },
         {
-            title: 'Company',
+            title: __('Company'),
             dataIndex: 'company_id',
         },
 
         {
-            title: 'Brand',
+            title: __('Brand'),
             dataIndex: 'brand_id'
         },
         {
-            title: 'Model',
+            title: __('Model'),
             dataIndex: 'model_id',
         },
         {
-            title: 'Car Shop',
+            title: __('Car Shop'),
             dataIndex: 'car_shop_id',
         },
         {
-          title: 'User',
+          title: __('User'),
           dataIndex: 'user_id'
         },
         {
-            title: 'Created At',
+            title: __('Created At'),
             dataIndex: 'created_at',
         },
         {
-            title: 'Actions',
+            title: __('Actions'),
             dataIndex: 'action',
         }
     ];
@@ -50,7 +52,7 @@ const fields = () => {
     const filterableColumns = [
         {
             key: "customer_name",
-            value: "Customer Name"
+            value: __('Customer Name')
         }
     ];
 

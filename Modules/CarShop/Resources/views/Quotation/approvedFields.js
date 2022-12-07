@@ -1,3 +1,7 @@
+import {translations} from "$/Mixins/translations";
+
+const __ = translations.methods.__;
+
 const fields = () => {
 
     const addEditUrl = 'quotations';
@@ -12,43 +16,43 @@ const fields = () => {
             dataIndex: 'id',
         },
         {
-            title: 'Customer Name',
+            title: __('Customer Name'),
             dataIndex: 'customer_name',
         },
         {
-            title: 'Company',
+            title: __('Company'),
             dataIndex: 'company_id',
         },
         {
-            title: 'Brand',
+            title: __('Brand'),
             dataIndex: 'brand_id'
         },
         {
-            title: 'Model',
+            title: __('Model'),
             dataIndex: 'model_id',
         },
         {
-            title: 'Car Shop',
+            title: __('Car Shop'),
             dataIndex: 'car_shop_id',
         },
         {
-            title: 'Policy Number',
+            title: __('Policy Number'),
             dataIndex: 'policy_num',
         },
         {
-            title: 'Policy Year',
+            title: __('Policy Year'),
             dataIndex: 'policy_year',
         },
         {
-            title: 'Approved At',
+            title: __('Approved At'),
             dataIndex: 'approved_at',
         },
         {
-            title: 'User',
+            title: __('User'),
             dataIndex: 'user_id',
         },
         {
-            title: 'Actions',
+            title: __('Actions'),
             dataIndex: 'action',
         }
     ];
@@ -57,15 +61,15 @@ const fields = () => {
     const filterableColumns = [
         {
             key: "customer_name",
-            value: "Customer Name"
+            value: __('Customer Name')
         },
         {
             key: 'policy_num',
-            value: 'Policy Number',
+            value: __('Policy Number'),
         },
         {
             key: 'policy_year',
-            value: 'Policy Year',
+            value: __('Policy Year'),
         }
     ];
 

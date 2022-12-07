@@ -7,11 +7,11 @@
         >
         </SectionTitleLineWithButton>
         <CardBox is-form @submit.prevent="submit">
-
             <div class="form-group mb-6">
-                <label for="accident_date" class="form-label inline-block mb-2 text-gray-700">تاريخ الحادث</label>
+                <label for="accident_date" class="form-label inline-block mb-2 text-gray-700">{{ __('Accident Date')
+                    }}</label>
                 <Calendar inputId="accident_date" v-model="form.accident_date" dateFormat="yy-mm-dd"
-                          class="form-control block w-full" aria-autocomplete="none"/>
+                          class="form-control block w-full" aria-autocomplete="none" :maxDate="exceedDate"/>
                 <jet-input-error
                     class="mt-2"
                     :message="form.errors['accident_date']"
@@ -19,7 +19,8 @@
             </div>
 
             <div class="form-group mb-6">
-                <label for="description" class="form-label inline-block mb-2 text-gray-700">وصف الحادث</label>
+                <label for="description" class="form-label inline-block mb-2 text-gray-700">
+                    {{ __('Accident Description') }}</label>
                 <Textarea v-model="form.description" class="form-control block w-full" cols="30"/>
                 <jet-input-error
                     class="mt-2"
@@ -29,7 +30,7 @@
 
 
             <div class="form-group mb-6" v-if="showFinancial">
-                <label for="admin_note" class="form-label inline-block mb-2 text-gray-700">ملاحظات (MK)</label>
+                <label for="admin_note" class="form-label inline-block mb-2 text-gray-700">{{ __('Mk Notes') }}</label>
                 <Textarea v-model="form.admin_note" class="form-control block w-full" cols="30"/>
                 <jet-input-error
                     class="mt-2"
@@ -38,8 +39,8 @@
             </div>
 
             <div class="form-group mb-6 payment-amount" v-if="showFinancial">
-                <label for="compensation" class="form-label inline-block mb-2 text-gray-700">المبلغ المدفوع
-                    (التعويض)</label>
+                <label for="compensation" class="form-label inline-block mb-2 text-gray-700">
+                {{ __('Amount Paid') }}</label>
                 <InputNumber type="text" v-model="form.compensation" class="form-control block w-full"
                            id="compensation" aria-autocomplete="none" />
                 <jet-input-error
@@ -49,10 +50,11 @@
             </div>
 
             <div class="form-group mb-6" v-if="showFinancial">
-                <label for="compensation" class="form-label inline-block mb-2 text-gray-700">طريقة الدفع</label>
+                <label for="compensation" class="form-label inline-block mb-2 text-gray-700">{{ __('Payment Way')
+                    }}</label>
 
                 <Dropdown v-model="form.payment_way" :options="paymentWays" optionLabel="label" optionValue="value"
-                          placeholder="Select Payment way" class="form-control block w-full"
+                          :placeholder="__('Select Payment Way')" class="form-control block w-full"
                           @change="handleChangePayment"/>
                 <jet-input-error
                     class="mt-2"
@@ -61,8 +63,7 @@
             </div>
 
             <div class="form-group mb-6"  v-if="paymentWay === 'bank'">
-                <label for="account_num" class="form-label inline-block mb-2 text-gray-700">رفم الحساب المحول
-                    عليه</label>
+                <label for="account_num" class="form-label inline-block mb-2 text-gray-700">{{ __('Account Number') }}</label>
                 <InputText type="text" v-model="form.account_num" class="form-control block w-full"
                            id="account_num"/>
                 <jet-input-error
@@ -72,8 +73,7 @@
             </div>
 
             <div class="form-group mb-6" v-if="paymentWay === 'check'">
-                <label for="check_num" class="form-label inline-block mb-2 text-gray-700">رقم
-                    الشيك</label>
+                <label for="check_num" class="form-label inline-block mb-2 text-gray-700">{{ __('Check No') }}</label>
                 <InputText type="text" v-model="form.check_num" class="form-control block w-full"
                            id="check_num"/>
                 <jet-input-error
@@ -83,7 +83,7 @@
             </div>
 
             <div class="form-group mb-6">
-                <ViltMedia :message="dfd" :row="imageRow" v-model="attachments"/>
+                <ViltMedia :message="f" :row="imageRow" v-model="attachments"/>
             </div>
 
             <div class="mb-6">
@@ -133,6 +133,8 @@ const props = defineProps({
 
 let carModels = ref([]);
 
+const exceedDate = new Date(Date.now());
+
 let paymentWays = ref([
     {label: 'Cash', value: 'cash'},
     {label: 'Bank', value: 'bank'},
@@ -143,7 +145,7 @@ let paymentWay = ref('');
 const attachments = ref([]);
 const imageRow = {
     multi: true,
-    name: 'attachments',
+    name: 'Attachments',
 };
 
 

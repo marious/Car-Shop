@@ -1,7 +1,7 @@
 <template>
     <div class="py-2 px-2" v-if="view === 'input'">
         <label v-if="row.name" :for="row.name" class="text-sm font-normal capitalize">{{
-                row.label ? row.label : row.name
+                row.label ? __(row.label) : __(row.name)
             }}
             <span v-if="row.required" class="text-red-600 text-bold">*</span>
         </label>
@@ -21,7 +21,7 @@
                         <i class='bx bx-upload bx-sm'></i>
                     </div>
                     <div>
-                        <span>`+(row.placeholder ? row.placeholder : row.name)+`</span>
+                        <span>`+(row.placeholder ? __(row.placeholder) : __(row.name))+`</span>
                     </div>
                 </div>
             `"
