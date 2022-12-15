@@ -48,7 +48,7 @@ class SystemUserController extends Controller
         $validated = $request->validate([
             'name' => 'required',
             'phone' => 'required|min:10',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users,email',
             'userType' => 'required',
             'carShop' => 'required',
             'password' => 'required|min:6|confirmed',
@@ -122,8 +122,8 @@ class SystemUserController extends Controller
 
         $validated = $request->validate([
             'name' => 'required',
-            'phone' => 'required|min:10',
-            'email' => 'required|email',
+            'phone' => 'required|min:10|max:20',
+            'email' => 'required|email|unique:users,email,' . $user->id,
             'userType' => 'required',
             'car_shop_id' => 'required',
             'password' => 'sometimes|required|min:6|confirmed',
