@@ -90,6 +90,7 @@
     "Policy Number": "Policy Number",
     "Policy Year": "Policy Year",
     "Approved Quotations": "Approved Quotations",
+    "Approved At": "Approved At",
     "Make Quotation": "Make Quotation",
     "Birth Date": "Birth Date",
     "Chasses No": "Chasses No.",
@@ -113,5 +114,9 @@
     "Report From": "Report From",
     "Total": "Total",
     "Updated Successfully": "Updated Successfully",
-    "Saved Successfully": "Saved Successfully"
+    "Saved Successfully": "Saved Successfully",
+    "Report": "Report",
+    "Accident List": "Accident List",
+    "Add Accident": "Add Accident",
+    "Car Shop Report": "Car Shop Report"
 }

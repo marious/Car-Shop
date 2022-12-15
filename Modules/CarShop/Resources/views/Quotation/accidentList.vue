@@ -71,25 +71,25 @@ console.log(route().params);
                             class="bg-tableHead text-main dark:bg-gray-800 dark:text-white"
                         >
                             <th class="filament-tables-header-cell">#</th>
-                            <th class="filament-tables-header-cell">
+                            <th class="filament-tables-header-cell rtl:text-center">
                                 {{ __('Customer Name') }}
                             </th>
-                            <th class="filament-tables-header-cell">
+                            <th class="filament-tables-header-cell rtl:text-center">
                                 {{ __('Document Number') }}
                             </th>
-                            <th class="filament-tables-header-cell">
+                            <th class="filament-tables-header-cell rtl:text-center">
                                 {{ __('Accident Date') }}
                             </th>
-                            <th class="w-5">{{ __('Action') }}</th>
+                            <th class="w-5 rtl:text-center">{{ __('Action') }}</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr v-for="(accident, i) in accidents" :key="accident.id">
                             <td>{{ i + 1 }}</td>
-                            <td>{{ accident.quotation.customer_name }}</td>
-                            <td>{{ accident.policy_num }}</td>
-                            <td>{{ accident.accident_date }}</td>
-                            <td class="px-4 py-3 whitespace-nowrap filament-tables-actions-cell">
+                            <td class="rtl:text-center">{{ accident.quotation.customer_name }}</td>
+                            <td class="rtl:text-center">{{ accident.policy_num }}</td>
+                            <td class="rtl:text-center">{{ accident.accident_date }}</td>
+                            <td class="px-4 py-3 whitespace-nowrap filament-tables-actions-cell rtl:text-center">
                                 <div
                                     class="flex items-center justify-end gap-4 my-4"
                                 >

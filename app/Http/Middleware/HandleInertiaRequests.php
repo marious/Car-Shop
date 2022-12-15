@@ -53,7 +53,8 @@ class HandleInertiaRequests extends Middleware
             ->icon('bx bx-car')
             ->label(__('Car Brand'))
             ->group(__('Car Management'))
-            ->route('car-brands.index')->sort(3));
+            ->route('car-brands.index')
+            ->sort(3));
 
         VILT::registerMenu(Menu::make('car_model')
             ->can('view_car_models')
@@ -82,8 +83,8 @@ class HandleInertiaRequests extends Middleware
             ->can('view_car_shops')
             ->icon('bx bxs-quote-alt-left')
             ->label(__(__('Translations')))
-            ->group('Settings')
-            ->route('translation.index')->sort(3));
+            ->group(__('Settings'))
+            ->route('translation.index')->sort(22));
 
 
 
@@ -136,16 +137,18 @@ class HandleInertiaRequests extends Middleware
         VILT::registerMenu(Menu::make('report')
             ->can('add_system_user')
             ->icon('bx bx-menu')
-            ->label(__('Report'))
+            ->label(__('Car Shop Report'))
+            ->group(__('Report'))
             ->route('report.index')
-            ->sort(30)
+            ->sort(200)
         );
 
         VILT::registerMenu(Menu::make('system_users')
             ->can('add_system_user')
-            ->icon('bx bx-menu')
+            ->icon('bx bx-user')
             ->label(__('System Users'))
             ->route('system-users.index')
+            ->group(__('Settings'))
             ->sort(20)
         );
 

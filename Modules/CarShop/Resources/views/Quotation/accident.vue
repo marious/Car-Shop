@@ -91,15 +91,15 @@
                     <BaseButton
                         type="submit"
                         color="info"
-                        label="Submit"
+                        :label="__('Submit')"
                         :disabled="form.processing"
                         :processing="form.processing"
                     />
                     <BaseButton
-                        class="ml-1"
+                        class="ml-1 rtl:mr-1"
                         color="info"
                         outline
-                        label="Back"
+                        :label="__('Back')"
                         as="Link"
                         :href="route('quotations.approved')"
                     />
