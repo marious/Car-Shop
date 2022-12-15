@@ -2,68 +2,76 @@
     <SectionMain>
         <SectionTitleLineWithButton
             :icon="mdiBallotOutline"
-            :title="'Accident Info'"
+            :title="__('Accident Info')"
             main
         >
         </SectionTitleLineWithButton>
         <CardBox is-form>
             <div class="mb-3 xl:w-full mb-2">
-                <h2 class="font-bold font-lg py-5 bg-gray-200 px-5">Quotations Info</h2>
+                <h2 class="font-bold font-lg py-5 bg-gray-200 px-5">{{ __('Car Info') }}</h2>
                 <table class="min-w-full">
                     <tr>
-                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left">
-                            اسم العميل
+                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left rtl:text-right">
+                            {{ __('Customer Name') }}
                         </th>
-                        <td>
+                        <td class="rtl:text-right">
                             {{ accident.quotation.customer_name }}
                         </td>
                     </tr>
                     <tr>
-                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left">
-                           رقم الوثيقة
+                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left rtl:text-right">
+                           {{ __('Document Number') }}
                         </th>
-                        <td>
+                        <td class="rtl:text-right">
                             {{ accident.quotation.policy_num }}
                         </td>
                     </tr>
                     <tr>
-                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left">
-                            رقم اللوحة
+                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left rtl:text-right">
+                            {{ __('Plate Number') }}
                         </th>
-                        <td>
+                        <td class="rtl:text-right">
                             {{ accident.quotation.car_num }}
                         </td>
                     </tr>
                     <tr>
-                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left">
-                            رقم الشاسيه
+                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left rtl:text-right">
+                            {{ __('Chasses No') }}
                         </th>
-                        <td>
+                        <td class="rtl:text-right">
                             {{ accident.quotation.chasses_num }}
                         </td>
                     </tr>
                     <tr>
-                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left">
-                            الشركة
+                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left rtl:text-right">
+                            {{ __('Company') }}
                         </th>
-                        <td>
+                        <td class="rtl:text-right">
                             {{ accident.quotation.company.name.ar }}
                         </td>
                     </tr>
                     <tr>
-                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left">
-                            ماركة السيارة
+                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left rtl:text-right">
+                           {{ __('Car Brand') }}
                         </th>
-                        <td>
+                        <td class="rtl:text-right">
                             {{ accident.quotation.brand.name.en }}
                         </td>
                     </tr>
                     <tr>
-                        <th scope="col" class="text-lg font-bold  px-6 py-4 text-left">
-                            موديل السيارة
+                        <th scope="col" class="text-lg font-bold  px-6 py-4 text-left rtl:text-right">
+                            {{ __('Car Model') }}
                         </th>
-                        <td>
+                        <td class="rtl:text-right">
                             {{ accident.quotation.model.name.en }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col" class="text-lg font-bold  px-6 py-4 text-left rtl:text-right">
+                            {{ __('Car Price') }}
+                        </th>
+                        <td class="rtl:text-right">
+                            {{ accident.quotation.price }}
                         </td>
                     </tr>
 
@@ -71,66 +79,66 @@
                 <h2 class="font-bold font-lg py-5 bg-gray-200 px-5">{{ __('Accident Info') }}</h2>
                 <table class="min-w-full">
                     <tr>
-                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left">
+                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left rtl:text-right">
                             {{ __('Accident Date') }}
                         </th>
-                        <td>
+                        <td class="rtl:text-right">
                             {{ accident.accident_date }}
                         </td>
                     </tr>
 
 
                     <tr>
-                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left">
+                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left rtl:text-right">
                            {{ __('Accident Description') }}
                         </th>
-                        <td>
+                        <td class="rtl:text-right">
                             {{ accident.description }}
                         </td>
                     </tr>
 
                     <tr v-if="isAdmin">
-                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left">
+                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left rtl:text-right">
                             {{ __('Mk Notes') }}
                         </th>
-                        <td>
+                        <td class="rtl:text-right">
                             {{ accident.admin_note }}
                         </td>
                     </tr>
 
                     <tr v-if="isAdmin">
-                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left">
+                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left rtl:text-right">
                            {{ __('Amount Paid') }}
                         </th>
-                        <td>
+                        <td class="rtl:text-right">
                             {{ accident.compensation }}
                         </td>
                     </tr>
 
 
                     <tr v-if="isAdmin">
-                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left">
+                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left rtl:text-right">
                             {{ __('Payment Way') }}
                         </th>
-                        <td>
+                        <td class="rtl:text-right">
                             {{ accident.payment_way }}
                         </td>
                     </tr>
 
                     <tr v-if="accident.payment_way === 'bank' && isAdmin">
-                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left">
+                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left rtl:text-right">
                            {{ __('Account Number') }}
                         </th>
-                        <td>
+                        <td class="rtl:text-right">
                             {{ accident.account_num }}
                         </td>
                     </tr>
 
                     <tr v-if="accident.payment_way === 'check' && isAdmin">
-                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left">
+                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left rtl:text-right">
                            {{ __('Check No') }}
                         </th>
-                        <td>
+                        <td class="rtl:text-right">
                             {{ accident.check_num }}
                         </td>
                     </tr>

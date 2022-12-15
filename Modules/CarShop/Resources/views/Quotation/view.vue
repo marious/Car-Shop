@@ -2,7 +2,7 @@
     <SectionMain>
         <SectionTitleLineWithButton
             :icon="mdiBallotOutline"
-            :title="'Quotations Info ' + titleStatus"
+            :title="title + ' ' + titleStatus"
             main
         >
         </SectionTitleLineWithButton>
@@ -10,98 +10,110 @@
         <CardBox is-form>
             <div class="mb-3 xl:w-full mb-2">
                 <Message v-if="successLicence" severity="success" :life="5000">
-                    Approved Successfully
+                    {{ __('Approved Successfully') }}
                 </Message>
 
-                <h2 class="font-bold font-lg py-5 bg-gray-200 px-5">Quotations Info</h2>
+                <h2 class="font-bold font-lg py-5 bg-gray-200 px-5">{{ __('Car Info') }}</h2>
                 <table class="min-w-full">
-                        <tr>
-                            <th scope="col" class="text-lg font-bold px-6 py-4 text-left">
-                                اسم العميل
-                            </th>
-                            <td>
-                                {{ quotation.customer_name }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="col" class="text-lg font-bold px-6 py-4 text-left">
-                                تاريخ الميلاد
-                            </th>
-                            <td>
-                                {{ quotation.birth_date }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="col" class="text-lg font-bold px-6 py-4 text-left">
-                               رقم اللوحة
-                            </th>
-                            <td>
-                                {{ quotation.car_num }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="col" class="text-lg font-bold px-6 py-4 text-left">
-                                رقم الشاسيه
-                            </th>
-                            <td>
-                                {{ quotation.chasses_num }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="col" class="text-lg font-bold px-6 py-4 text-left">
-                                رقم الموتور
-                            </th>
-                            <td>
-                                {{ quotation.motor_num }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="col" class="text-lg font-bold px-6 py-4 text-left">
-                                الشركة
-                            </th>
-                            <td>
-                                {{ quotation.company.name.ar }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="col" class="text-lg font-bold px-6 py-4 text-left">
-                              ماركة السيارة
-                            </th>
-                            <td>
-                                {{ quotation.brand.name.en }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="col" class="text-lg font-bold  px-6 py-4 text-left">
-                                موديل السيارة
-                            </th>
-                            <td>
-                                {{ quotation.model.name.en }}
-                            </td>
-                        </tr>
+                    <tr>
+                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left rtl:text-right">
+                            {{ __('Customer Name') }}
+                        </th>
+                        <td class="rtl:text-right">
+                            {{ quotation.customer_name }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left rtl:text-right">
+                            {{ __('Birth Date') }}
+                        </th>
+                        <td class="rtl:text-right">
+                            {{ quotation.birth_date }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left rtl:text-right">
+                            {{ __('Plate Number') }}
+                        </th>
+                        <td class="rtl:text-right">
+                            {{ quotation.car_num }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left rtl:text-right">
+                            {{ __('Chasses No') }}
+                        </th>
+                        <td class="rtl:text-right">
+                            {{ quotation.chasses_num }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left rtl:text-right">
+                            {{ __('Motor No') }}
+                        </th>
+                        <td class="rtl:text-right">
+                            {{ quotation.motor_num }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left rtl:text-right">
+                            {{ __('Company') }}
+                        </th>
+                        <td class="rtl:text-right">
+                            {{ quotation.company.name.ar }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left rtl:text-right">
+                            {{ __('Car Brand') }}
+                        </th>
+                        <td class="rtl:text-right">
+                            {{ quotation.brand.name.en }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col" class="text-lg font-bold  px-6 py-4 text-left rtl:text-right">
+                            {{ __('Car Model') }}
+                        </th>
+                        <td class="rtl:text-right">
+                            {{ quotation.model.name.en }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col" class="text-lg font-bold  px-6 py-4 text-left rtl:text-right">
+                            {{ __('Car Price') }}
+                        </th>
+                        <td class="rtl:text-right">
+                            {{ quotation.price }}
+                        </td>
+                    </tr>
 
                 </table>
 
-                <h2 class="font-bold font-lg py-5 bg-gray-200 px-5">Financial Info</h2>
+                <h2 class="font-bold font-lg py-5 bg-gray-200 px-5">{{ __('Financial Info') }}</h2>
                 <table class="min-w-full">
                     <tr>
-                        <th scope="col" class="text-lg font-bold  px-6 py-4 text-left">Net Premium</th>
-                        <td>{{ quotation.premium }}</td>
+                        <th scope="col" class="text-lg font-bold  px-6 py-4 text-left rtl:text-right">
+                            {{ __('Net Premium') }}
+                        </th>
+                        <td class="rtl:text-right">{{ quotation.premium }}</td>
                     </tr>
                     <tr>
-                        <th scope="col" class="text-lg font-bold  px-6 py-4 text-left">Total Premium</th>
-                        <td>{{ quotation.total_premium }}</td>
+                        <th scope="col" class="text-lg font-bold  px-6 py-4 text-left rtl:text-right">
+                            {{ __('Total Premium') }}
+                        </th>
+                        <td class="rtl:text-right">{{ quotation.total_premium }}</td>
                     </tr>
                     <tr v-for="fee in quotation.fees">
-                        <th scope="col" class="text-lg font-bold  px-6 py-4 text-left">
-                            {{fee.name.ar}}
+                        <th scope="col" class="text-lg font-bold  px-6 py-4 text-left rtl:text-right">
+                            {{ fee.name.en }}
                         </th>
-                        <td>
-                            {{fee.pivot.amount}}
+                        <td class="rtl:text-right">
+                            {{ fee.pivot.amount }}
                         </td>
                     </tr>
                 </table>
-                <h2 class="font-bold font-lg py-5 bg-gray-200 px-5">Attachments</h2>
+                <h2 class="font-bold font-lg py-5 bg-gray-200 px-5">{{ __('Attachments') }}</h2>
                 <div class="mt-5">
                     <Image v-for="image in medias"
                            :src="image['original_url']"
@@ -112,10 +124,11 @@
                 </div>
 
                 <div class="flex space-x-2 justify-center" v-if="!successLicence && showApproved">
-                    <button type="button" class="inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out"
+                    <button type="button"
+                            class="inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out"
                             @click="showModal = !showModal"
                     >
-                        Approve
+                        {{ __('Approve') }}
                     </button>
                 </div>
             </div>
@@ -139,6 +152,10 @@ import {ref, computed} from "vue";
 import LicenceModal from "./Modals/LicenceModal.vue";
 import Message from 'primevue/message';
 import Image from 'primevue/image';
+import {translations} from "$/Mixins/translations";
+
+
+const __ = translations.methods.__;
 
 
 let props = defineProps({
@@ -151,10 +168,10 @@ let successLicence = ref(false);
 let quotationApproved = ref(props.quotation.is_approved == 0 ? false : true);
 
 let titleStatus = computed(() => {
-   return quotationApproved.value ?
-       '  <span class="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-green-500 text-white rounded">Approved</span>'
-       :
-       '  <span class="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-red-600 text-white rounded">Not Approved</span>\n';
+    return quotationApproved.value ?
+        '  <span class="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-green-500 text-white rounded">' + __('Approved') + '</span>'
+        :
+        '  <span class="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-red-600 text-white rounded">' + __('Not Approved') + '</span>\n';
 
 });
 let showModal = ref(false);
@@ -166,9 +183,10 @@ function showLicenceModal() {
 
 const licneceSuccess = () => {
     quotationApproved.value = true;
-    successLicence.value = ! successLicence.value;
+    successLicence.value = !successLicence.value;
 };
 
+const title = __('Quotation Info');
 </script>
 
 <script>

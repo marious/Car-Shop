@@ -31,8 +31,11 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
 
     Route::get('accident/{quotationId}', [AccidentController::class, 'make'])
         ->name('accident.make');
+    Route::get('accident/list/{quotationId}', [AccidentController::class, 'accidentList'])->name('accident.accidentList');
     Route::get('accident/show/{quotationId}', [AccidentController::class, 'show'])->name('accident.show');
     Route::post('accident/{quotationId}', [AccidentController::class, 'store'])->name('accident.store');
+    Route::get('accident/edit/{accidentId}', [AccidentController::class, 'edit'])->name('accident.edit');
+    Route::post('accident/update/{accident}', [AccidentController::class, 'update'])->name('accident.update');
 
     //
     Route::get('/quotation_companies', [\Modules\CarShop\Http\Controllers\Api\CompanyApiController::class, 'index'])

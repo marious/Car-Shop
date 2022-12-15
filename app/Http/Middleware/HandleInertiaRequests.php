@@ -53,7 +53,7 @@ class HandleInertiaRequests extends Middleware
             ->icon('bx bx-car')
             ->label(__('Car Brand'))
             ->group(__('Car Management'))
-            ->route('car-brands.index')->sort(1));
+            ->route('car-brands.index')->sort(3));
 
         VILT::registerMenu(Menu::make('car_model')
             ->can('view_car_models')
@@ -71,6 +71,13 @@ class HandleInertiaRequests extends Middleware
             ->route('car-shops.index')->sort(3));
 
 
+        VILT::registerMenu(Menu::make('companies')
+            ->can('view_companies')
+            ->icon('bx bxs-shopping-bag')
+            ->label(__('Companies'))
+            ->group(__('Car Management'))
+            ->route('companies.index')->sort(4));
+
         VILT::registerMenu(Menu::make('translations')
             ->can('view_car_shops')
             ->icon('bx bxs-quote-alt-left')
@@ -78,12 +85,7 @@ class HandleInertiaRequests extends Middleware
             ->group('Settings')
             ->route('translation.index')->sort(3));
 
-        VILT::registerMenu(Menu::make('companies')
-            ->can('view_companies')
-            ->icon('bx bxs-shopping-bag')
-            ->label(__('Companies'))
-            ->group(__('Car Management'))
-            ->route('companies.index')->sort(4));
+
 
         VILT::registerMenu(Menu::make('company_fee')
             ->can('view_company_fee')
@@ -131,6 +133,14 @@ class HandleInertiaRequests extends Middleware
             ->route('quotations.approved')
             ->sort(9));
 
+        VILT::registerMenu(Menu::make('report')
+            ->can('add_system_user')
+            ->icon('bx bx-menu')
+            ->label(__('Report'))
+            ->route('report.index')
+            ->sort(30)
+        );
+
         VILT::registerMenu(Menu::make('system_users')
             ->can('add_system_user')
             ->icon('bx bx-menu')
@@ -138,6 +148,7 @@ class HandleInertiaRequests extends Middleware
             ->route('system-users.index')
             ->sort(20)
         );
+
 
         return array_merge(parent::share($request), [
             'data' => VILT::get(),

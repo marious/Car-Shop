@@ -154,7 +154,7 @@ watch(
                                                     class="bx bx-edit text-[16px]"
                                                 ></i>
                                                 <div class="table_tooltip">
-                                                    Edit
+                                                    {{ __('Edit') }}
                                                 </div>
                                             </Component>
                                         </div>
@@ -184,7 +184,7 @@ watch(
                                                 class="bx bx-delete text-[16px]"
                                             ></i>
                                             <div class="table_tooltip">
-                                                Delete
+                                                {{ __('Delete') }}
                                             </div>
                                         </button>
                                     </div>

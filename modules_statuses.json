@@ -6,5 +6,6 @@
     "Translations": true,
     "CarShop": true,
     "Insurance": true,
-    "Init": true
+    "Init": true,
+    "Report": true
 }

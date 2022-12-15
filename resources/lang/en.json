@@ -96,5 +96,22 @@
     "Motor No": "Motor No.",
     "Plate Number": "Plate Number",
     "Quotations": "Quotations",
-    "Data Saved Successfully": "Data Saved Successfully"
+    "Data Saved Successfully": "Data Saved Successfully",
+    "Document Number": "Document Number",
+    "Car Price": "Car Price",
+    "Car Info": "Car Info",
+    "Quotation Info": "Quotation Info",
+    "Approved": "Approved",
+    "Not Approved": "Not Approved",
+    "Approve": "Approve",
+    "Financial Info": "Financial Info",
+    "Net Premium": "Net Premium",
+    "Total Premium": "Total Premium",
+    "Approved Successfully": "Approved Successfully",
+    "From Date": "From Date",
+    "To Date": "To Date",
+    "Report From": "Report From",
+    "Total": "Total",
+    "Updated Successfully": "Updated Successfully",
+    "Saved Successfully": "Saved Successfully"
 }

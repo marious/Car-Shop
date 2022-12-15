@@ -91,8 +91,7 @@
 
                                 <template v-if="column.dataIndex === 'action'">
                                     <Link
-                                        v-if="!record.is_accident"
-                                        :href="route('accident.make', record.id)"
+                                        :href="route('accident.accidentList', record.id)"
                                     >
                                         <div class="table_tooltip">
                                             <span class="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-red-600 text-white rounded">
@@ -100,14 +99,14 @@
                                             </span>
                                         </div>
                                     </Link>
-                                    <Link
-                                        v-if="record.is_accident"
-                                        :href="route('accident.show', record.id)"
-                                    >
-                                        <span class="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-yellow-500 text-white rounded">
-                                            بيانات الحادث
-                                        </span>
-                                    </Link>
+<!--                                    <Link-->
+<!--                                        v-if="record.is_accident"-->
+<!--                                        :href="route('accident.show', record.id)"-->
+<!--                                    >-->
+<!--                                        <span class="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-yellow-500 text-white rounded">-->
+<!--                                            بيانات الحادث-->
+<!--                                        </span>-->
+<!--                                    </Link>-->
                                 </template>
                             </template>
 
