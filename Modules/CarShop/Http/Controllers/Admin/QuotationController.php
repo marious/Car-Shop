@@ -46,10 +46,8 @@ class QuotationController extends Controller
         $request->merge(['user_id' => auth()->user()->id]);
         $request['birth_date'] = Carbon::parse($request->input('birth_date'))->setTimezone('Africa/Cairo')->format('Y-m-d');
 
-
         try {
             $quotation = Quotation::create($request->all());
-
             $total = DB::select("CALL `sp_get_premuim_total`({$data['model_id']}, {$data['company_id']}, {$data['price']}, {$data['year']}, 1); ");
             $totalAndFees = collect(DB::select("CALL `sp_get_premuim`({$data['model_id']}, {$data['company_id']}, {$data['price']}, {$data['year']}, 1); "));
 
@@ -59,7 +57,6 @@ class QuotationController extends Controller
             $quotation->commission = $total[0]->commission;
             $quotation->sum_insured = $total[0]->sum_insured;
             $quotation->car_shop_id = auth()->user()->car_shop_id;
-
             $quotation->save();
 
             foreach ($totalAndFees as $item) {

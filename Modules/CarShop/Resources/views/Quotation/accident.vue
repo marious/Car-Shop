@@ -2,7 +2,7 @@
     <SectionMain>
         <SectionTitleLineWithButton
             :icon="mdiBallotOutline"
-            :title="__('Inform Accident')"
+            :title="__('Report Claim')"
             main
         >
         </SectionTitleLineWithButton>

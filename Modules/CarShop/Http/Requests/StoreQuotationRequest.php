@@ -22,10 +22,11 @@ class StoreQuotationRequest extends FormRequest
             'company_id' => 'required',
             'customer_name' => 'required|min:5',
             'birth_date' => ['required', new ValidAgeRule()],
-            'car_num' => 'required',
+            'car_num' => 'nullable',
             'chasses_num' => 'required',
-            'motor_num' => 'required',
+            'motor_num' => 'nullable',
             'attachments.*' => 'mimes:jpeg,jpg,png,gif|required|max:10000',
+            'phone_num' => 'required',
         ];
     }
 }

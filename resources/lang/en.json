@@ -70,9 +70,9 @@
     "Amount Paid": "Amount Paid",
     "Payment Way": "Payment Way",
     "Select Payment Way": "Select Payment Way",
-    "Cash": "Cash",
+    "Cash": "Service center",
     "Bank": "Bank",
-    "Check": "Check",
+    "Check": "Cheque",
     "Attachments": "Attachments",
     "Account Number": "Account Number",
     "Check No": "Check No",
@@ -118,5 +118,6 @@
     "Report": "Report",
     "Accident List": "Accident List",
     "Add Accident": "Add Accident",
-    "Car Shop Report": "Car Shop Report"
+    "Car Shop Report": "Car Shop Report",
+    "Report Claim": "Report Claim"
 }

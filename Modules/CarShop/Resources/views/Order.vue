@@ -23,8 +23,8 @@ let props = defineProps({
     showQuotation: Boolean,
 });
 
-let currentYear = new Date().getFullYear();
-let yearsRange = 10;
+let currentYear = new Date().getFullYear() + 1;
+let yearsRange = 11;
 
 let feedBack = ref({});
 let processTotalPremium = ref(false);
@@ -115,7 +115,7 @@ function quotationModal(obj) {
     <SectionMain>
         <SectionTitleLineWithButton
             :icon="mdiBallotOutline"
-            title="Enter Your Car Info"
+            :title="__('Enter Your Car Info')"
             main
         >
         </SectionTitleLineWithButton>

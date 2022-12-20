@@ -22,7 +22,7 @@ class Quotation extends ApiModel implements HasMedia
         'customer_name', 'birth_date', 'car_num', 'chasses_num',
         'motor_num', 'policy_term', 'policy_num', 'policy_year',
         'user_id', 'is_approved', 'rate', 'premium', 'total_premium', 'commission',
-        'sum_insured', 'approved_at', 'is_accident', 'car_shop_id',
+        'sum_insured', 'approved_at', 'is_accident', 'car_shop_id', 'phone_num',
     ];
 
     protected $hidden = ['pivot', 'updated_at'];

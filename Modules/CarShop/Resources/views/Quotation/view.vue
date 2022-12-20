@@ -25,6 +25,14 @@
                     </tr>
                     <tr>
                         <th scope="col" class="text-lg font-bold px-6 py-4 text-left rtl:text-right">
+                            {{ __('Phone Number') }}
+                        </th>
+                        <td class="rtl:text-right">
+                            {{ quotation.phone_num }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col" class="text-lg font-bold px-6 py-4 text-left rtl:text-right">
                             {{ __('Birth Date') }}
                         </th>
                         <td class="rtl:text-right">

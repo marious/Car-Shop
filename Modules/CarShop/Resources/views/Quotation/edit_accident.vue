@@ -2,7 +2,7 @@
     <SectionMain>
         <SectionTitleLineWithButton
             :icon="mdiBallotOutline"
-            :title="__('Inform Accident')"
+            :title="__('Report Claim')"
             main
         >
         </SectionTitleLineWithButton>
@@ -136,9 +136,9 @@ let images = props.medias.map(item => item.original_url);
 const exceedDate = new Date(Date.now());
 
 let paymentWays = ref([
-    {label: 'Cash', value: 'cash'},
+    {label: 'Service Center', value: 'cash'},
     {label: 'Bank', value: 'bank'},
-    {label: 'Check', value: 'check'},
+    {label: 'Cheque', value: 'check'},
 ]);
 
 let paymentWay = ref(props.accident.payment_way);

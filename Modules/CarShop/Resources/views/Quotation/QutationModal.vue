@@ -22,6 +22,7 @@ const maxDate = new Date(`${currentYear - 17}-01-01`);
 const successSend = ref(false);
 const name = ref('');
 const birthDate = ref('');
+const phoneNum = ref('');
 const carNumber = ref('');
 const chassisNo = ref('');
 const motorNo = ref('');
@@ -45,6 +46,7 @@ let form = useForm({
     chasses_num: chassisNo,
     motor_num: motorNo,
     attachments: attachments,
+    phone_num: phoneNum,
 });
 
 
@@ -62,6 +64,7 @@ const submit = (e) => {
             carNumber.value = '';
             chassisNo.value = '';
             motorNo.value = '';
+            phoneNum.value = '';
             attachments.value = [];
             successSend.value = true;
             form.reset();
@@ -86,6 +89,7 @@ function close() {
 watch(name, newVal => form.customer_name = newVal);
 watch(birthDate, newVal => form.birth_date = newVal);
 watch(carNumber, newVal => form.car_num = newVal);
+watch(phoneNum, newVal => form.phone_num = newVal);
 watch(chassisNo, newVal => form.chasses_num = newVal);
 watch(motorNo, newVal => form.motor_num = newVal);
 watch(attachments, newVal => form.attachments = newVal);
@@ -117,6 +121,16 @@ watch(attachments, newVal => form.attachments = newVal);
                 <jet-input-error
                     class="mt-2"
                     :message="form.errors['birth_date']"
+                />
+            </div>
+
+            <div class="form-group mb-6">
+                <label for="phone-number" class="form-label inline-block mb-2 text-gray-700">{{ __('Phone Number')
+                    }}</label>
+                <InputText type="text" v-model="phoneNum" class="form-control block w-full" id="phone-number"/>
+                <jet-input-error
+                    class="mt-2"
+                    :message="form.errors['car_num']"
                 />
             </div>
 
