@@ -130,7 +130,7 @@ watch(attachments, newVal => form.attachments = newVal);
                 <InputText type="text" v-model="phoneNum" class="form-control block w-full" id="phone-number"/>
                 <jet-input-error
                     class="mt-2"
-                    :message="form.errors['car_num']"
+                    :message="form.errors['phone_num']"
                 />
             </div>
 
