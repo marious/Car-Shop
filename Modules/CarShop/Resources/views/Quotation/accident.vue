@@ -136,9 +136,9 @@ let carModels = ref([]);
 const exceedDate = new Date(Date.now());
 
 let paymentWays = ref([
-    {label: 'Cash', value: 'cash'},
+    {label: 'Service Center', value: 'cash'},
     {label: 'Bank', value: 'bank'},
-    {label: 'Check', value: 'check'},
+    {label: 'Cheque', value: 'check'},
 ]);
 
 let paymentWay = ref('');
