@@ -28,11 +28,11 @@ class OrderPage extends Page
     public function index()
     {
         $showCommission = false;
-        $showQuotation = false;
+        $showQuotation = true;
 
         if (Auth::user()->is_admin || Auth::user()->user_type == 1) {
             $showCommission = true;
-            $showQuotation = true;
+//            $showQuotation = true;
         }
 
         return Inertia::render('@CarShop::Order', [
